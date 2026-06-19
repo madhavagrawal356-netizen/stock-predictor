@@ -22,12 +22,12 @@ ticker = st.text_input(
 mode = st.radio(
     "Prediction Mode",
     [
-        "⚡ Quick Prediction",
-        "🧠 Advanced AI Analysis"
+        " Quick Prediction",
+        " Advanced AI Analysis"
     ]
 )
 
-if mode == "⚡ Quick Prediction":
+if mode == " Quick Prediction":
 
     st.success(
         "Expected runtime: 5-15 seconds"
@@ -50,16 +50,16 @@ else:
 
 if st.button("Predict"):
 
-    if mode == "⚡ Quick Prediction":
+    if mode == " Quick Prediction":
 
         endpoint = (
-            f"http://127.0.0.1:8000/quick_predict/{ticker}"
+            f"https://stock-predictor-api-fg3i.onrender.com/quick_predict/{ticker}"
         )
 
     else:
 
         endpoint = (
-            f"http://127.0.0.1:8000/deep_predict/{ticker}"
+            f"https://stock-predictor-api-fg3i.onrender.com/deep_predict/{ticker}"
         )
 
     with st.spinner(
