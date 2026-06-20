@@ -1,9 +1,9 @@
 
-from data_loader import load_stock
-from features import create_features
-from trainer import prepare_data
-from optuna_model import get_model_category, tune_model, best_model, create_best_model
-from evaluate import quick_evaluate
+from .data_loader import load_stock
+from .features import create_features
+from .trainer import prepare_data
+from .optuna_model import get_model_category, tune_model, best_model, create_best_model
+from .evaluate import quick_evaluate
 from sklearn.metrics import accuracy_score
 
 # %%
