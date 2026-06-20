@@ -9,8 +9,6 @@ from .data_loader import load_stock
 df = load_stock("MSFT")
 
 # %%
-from .features import create_features
-df = create_features(df)
 
 # %%
 def evaluate(model, X_test, y_test):
