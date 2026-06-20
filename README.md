@@ -1,0 +1,1 @@
+This app can be used for predicting stock movements on a 5-day window. Often machine learning models that are optimised for a certain set of stocks do not return best results for other stocks. This app dynamically finds the best model and predicts using it. 
