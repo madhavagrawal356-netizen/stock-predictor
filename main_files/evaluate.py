@@ -4,12 +4,12 @@ from sklearn.metrics import mean_squared_error
 from sklearn.metrics import r2_score
 import numpy as np
 import pandas as pd
-from trainer import train_xgb, train_lgb , prepare_data, train_rf
-from data_loader import load_stock
+from .trainer import train_xgb, train_lgb , prepare_data, train_rf
+from .data_loader import load_stock
 df = load_stock("MSFT")
 
 # %%
-from features import create_features
+from .features import create_features
 df = create_features(df)
 
 # %%
