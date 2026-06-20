@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 from .trainer import train_xgb, train_lgb , prepare_data, train_rf
 from .data_loader import load_stock
+from .features import create_features 
 
 
 # %%
