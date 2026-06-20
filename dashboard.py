@@ -71,7 +71,7 @@ if predict:
         response = requests.get(endpoint)
 
         result = response.json()
-    st.write(result)
+    
     try:
         df = yf.download(ticker, period="1y", progress=False)
         st.subheader(f"{ticker} price history")
