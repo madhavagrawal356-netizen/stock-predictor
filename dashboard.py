@@ -81,7 +81,7 @@ if predict:
     col1, col2, col3, col4, col5 = st.columns(5)
     col1.metric("Current price", round(result["Current price"], 2))
     col2.metric("Predicted price", round(result["Predicted price"], 2))
-    col3.metric("Signal", result["Signal"])
+    col3.metric("Signal", result["signal"])
     col4.metric("Expected return", round(result["Expected return"], 2))
     col5.metric("Confidence", round(result["Confidence"], 2))
 
