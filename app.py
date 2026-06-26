@@ -48,7 +48,7 @@ def job_status(job_id):
     if not os.path.exists(path):
         return {"status": "running", "step": "Starting"}
     with open(path, "r") as f:
-        result = json.load(f)
+        return json.load(f)
 
 # %%
 
