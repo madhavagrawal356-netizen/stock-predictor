@@ -21,12 +21,9 @@ def run_analysis(job_id, ticker):
         update_job(job_id, "running", "Downloading data")
         result = deep_predict(ticker, job_id)
         update_job(job_id, "completed", "Completed", result=result)
-        with open(f"{Job_dir}/{job_id}.json", "w") as f:
-            json.dump(result, f)
+        
     except Exception as e:
-        with open(f"{Job_dir}/{job_id}.json", "w") as f:
-            json.dump({"error": str(e)}, f)
-
+        update_job(job_id,"error","Failed",error=str(e))
 
 
 @app.get("/")
