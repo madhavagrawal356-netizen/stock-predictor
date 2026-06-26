@@ -20,7 +20,7 @@ def retrain_models():
 
 # %%
 scheduler = BackgroundScheduler()
-scheduler.add_job(retrain_model, trigger = 'interval', days=1)
+scheduler.add_job(retrain_models, trigger = 'interval', days=1)
 scheduler.start()
 
 
