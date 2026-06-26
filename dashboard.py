@@ -104,7 +104,7 @@ if predict:
             elapsed += 5
 
     
-    st.write(result)
+    #st.write(result)
     try:
         df = yf.download(ticker, period="1y", progress=False)
         st.subheader(f"{ticker} price history")
