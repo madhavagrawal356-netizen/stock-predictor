@@ -11,3 +11,6 @@ joblib
 matplotlib
 streamlit 
 requests
+datetime
+statsmodel
+apscheduler

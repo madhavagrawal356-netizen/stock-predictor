@@ -6,10 +6,10 @@ import numpy as np
 import pandas as pd
 from .trainer import train_xgb, train_lgb , prepare_data, train_rf
 from .data_loader import load_stock
-from .features import create_features 
-
 
 # %%
+from .features import create_features
+
 
 # %%
 def evaluate(model, X_test, y_test):
@@ -18,7 +18,6 @@ def evaluate(model, X_test, y_test):
     mae = mean_absolute_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
     return rmse, mae, r2
-
 
 
 # %%

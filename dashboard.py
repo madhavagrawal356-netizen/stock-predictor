@@ -4,6 +4,7 @@ import requests
 import yfinance as yf
 import pandas as pd
 import matplotlib.pyplot as plt
+import time
 
 st.set_page_config(
     page_title="AI Stock Predictor",
@@ -43,7 +44,7 @@ else:
 
         • Random Forest
         • XGBoost
-        • LightGBM
+        • ARIMA
         • Optuna Hyperparameter Tuning
 
         Expected runtime: 10-15 minutes
@@ -57,21 +58,53 @@ if predict:
         endpoint = (
             f"https://stock-predictor-api-fg3i.onrender.com/quick_predict/{ticker}"
         )
+        with st.spinner(
+            "Generating prediction..."
+        ):
+            response = requests.get(endpoint)
+            result = response.json()
 
     else:
 
         endpoint = (
-            f"https://stock-predictor-api-fg3i.onrender.com/deep_predict/{ticker}"
+            f"https://stock-predictor-api-fg3i.onrender.com/start_analysis/{ticker}"
         )
-
-    with st.spinner(
-        "Generating prediction..."
-    ):
-
         response = requests.get(endpoint)
+        job = response.json()
+        job_id = job['job_id']
+        progress_placeholder = st.empty()
+        progress_bar = st.progress(0)
+        elapsed =0
+        progress_map = {
+            'Downloading data': 10,
+            'Creating features': 20,
+            'Preparing data': 40,
+            'Finding best model parameters': 60,
+            'Training best model': 80,
+            'Completed': 100
+        }
+        while True:
+            response = requests.get(f"https://stock-predictor-api-fg3i.onrender.com/job_status/{job_id}")
+            status = response.json()
+            if status['status'] == 'completed':
+                result = status['result']
+                progress_bar.progress(100)
+                progress_placeholder.success("Analysis completed")
+                break
+            elif status['status'] == 'error':
+                st.error(status['message'])
+                st.stop()
+            step = status['step']
+            progress_bar.progress(progress_map.get(step,0))
+            progress_placeholder.info(f"""
+                                      Current stage: {step}, 
+                                      Time elapsed: {elapsed} seconds
+                                      """)
+            time.sleep(5)
+            elapsed += 5
 
-        result = response.json()
     
+    st.write(result)
     try:
         df = yf.download(ticker, period="1y", progress=False)
         st.subheader(f"{ticker} price history")
@@ -89,16 +122,15 @@ if predict:
     st.subheader("Model Info")
     st.write(f"Best model: {result['best_model']}")
     st.write(f"Validation RMSE: {result['best_rmse']}")
-    importance = pd.DataFrame({
-    "Feature": result["Feature Importances"].keys(),
-    "Importance": result["Feature Importances"].values()
+    if result['best_model'] != 'arima':
+        importance = pd.DataFrame({"Feature": result["Feature Importances"].keys(),"Importance": result["Feature Importances"].values()
 })
-    importance = importance.sort_values(
-    "Importance",
-    ascending=False
+        importance = importance.sort_values("Importance",ascending=False
 )
-    st.subheader("Feature Importances")
-    st.bar_chart(importance.set_index("Feature"))
+        st.subheader("Feature Importances")
+        st.bar_chart(importance.set_index("Feature"))
+    else:
+        st.info("ARIMA model does not have feature importances")
 
     st.subheader("Predicted Price")
     future_date = df.index[-1] + pd.Timedelta(days=5)
