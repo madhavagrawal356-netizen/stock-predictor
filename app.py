@@ -45,10 +45,14 @@ def start_analysis(ticker:str):
 @app.get("/job_status/{job_id}")
 def job_status(job_id):
     path = f"{Job_dir}/{job_id}.json"
+    print ("Checking": path)
     if not os.path.exists(path):
+        print ("file not exist")
         return {"status": "running", "step": "Starting"}
     with open(path, "r") as f:
-        return json.load(f)
+        data= json.load(f)
+    print (data)
+    return data
 
 # %%
 
