@@ -46,7 +46,7 @@ def deep_predict(ticker, job_id=None):
         joblib.dump({'model': winner, 'best_rmse': best_rmse, 'best_type': best_type, 'best_params': best_params, 'timestamp': datetime.now()}, model_path)
     latest = X_test.iloc[[-1]]
     if best_type == 'arima':
-        prediction = winner.forecast(steps=1)[0]
+        prediction = winner.forecast(steps=1).iloc[0]
     else:
         prediction = winner.predict(latest)[0]
     signal = 'Bearish' if prediction <0 else 'Bullish'
