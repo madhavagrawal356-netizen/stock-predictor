@@ -6,7 +6,7 @@ import uuid
 import json
 import threading
 from main_files.job import update_job
-from .scheduler import scheduler
+from scheduler import scheduler
 Job_dir = 'jobs'
 os.makedirs(Job_dir, exist_ok=True)
 # %%
