@@ -49,12 +49,9 @@ def start_analysis(ticker:str):
 def job_status(job_id):
     path = f"{Job_dir}/{job_id}.json"
     if not os.path.exists(path):
-        return {"status": "running"}
+        return {"status": "running", "step": "Starting"}
     with open(path, "r") as f:
         result = json.load(f)
-    if 'status' in result and result['status'] == 'error':
-        return result
-    return {"status": "finished", 'result': result}
 
 # %%
 
