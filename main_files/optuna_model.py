@@ -35,7 +35,7 @@ def get_model_category(trial, model_type):
 #X_train, X_test, y_train, y_test = prepare_data(df)
 
 # %%
-def tune_model(model_type, X_train, y_train, X_test, y_test, n_trials=2):
+def tune_model(model_type, X_train, y_train, X_test, y_test, n_trials=5):
     def objective(trial):
         
 
