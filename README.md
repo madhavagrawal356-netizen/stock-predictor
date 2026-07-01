@@ -69,14 +69,16 @@ The prediction target is the expected percentage return over the next five tradi
 
 **Project Structure**
 
-main_files/<br>
-    data_loader.py    # yfinance pull<br>
-    features.py       # technical indicators + target construction<br>
-    trainer.py          # train/test split, model training<br>
-    optuna_model.py    # Optuna search per model type<br>
-    evaluate.py          # quick-mode model comparison<br>
-    predictor.py        # quick_predict / deep_predict orchestration<br>
-    job.py                 # async job status persistence<br>
-scheduler.py         # background retraining every 60 days<br>
-app.py                    # FastAPI routes<br>
-dashboard.py         # Streamlit UI
+```text
+main_files/
+├── data_loader.py      # yfinance pull
+├── features.py         # Technical indicators + target construction
+├── trainer.py          # Train/test split and model training
+├── optuna_model.py     # Optuna search for each model type
+├── evaluate.py         # Quick-mode model comparison
+├── predictor.py        # quick_predict / deep_predict orchestration
+├── job.py              # Async job status persistence
+scheduler.py        # Background retraining every 60 days
+app.py              # FastAPI routes
+dashboard.py        # Streamlit dashboard
+```
