@@ -1,4 +1,4 @@
-AI Stock Predictor
+**AI Stock Predictor**
 
 <img width="947" height="443" alt="Screenshot 2026-07-02 013803" src="https://github.com/user-attachments/assets/2a6a2224-d1bc-4766-8305-5a51da1cedf8" />
 
@@ -6,7 +6,7 @@ AI Stock Predictor
 
 An end-to-end stock forecasting application that predicts the expected 5-day return of publicly traded stocks using machine learning and statistical models. The project combines a FastAPI backend with a Streamlit dashboard to provide both fast predictions and more comprehensive AI-based analysis. The application was built to explore different approaches to time-series forecasting while providing a simple interface.
 
-Features
+**Features**
 
 1. Predicts the expected 5-day stock return
 2. Two prediction modes: Quick Prediction (5–15 seconds), Advanced AI Analysis (10–15 minutes)
@@ -20,7 +20,7 @@ Features
 10. Directional confidence score
 11. Feature importance visualization for tree-based models
 
-Prediction Modes
+**Prediction Modes**
 1. Quick Prediction :
 Designed for fast inference by comparing:
 XGBoost
@@ -36,7 +36,7 @@ Selects the best-performing model automatically
 Saves trained models for future reuse
 Typical runtime: 10–15 minutes (only the first time a ticker is analyzed)
 
-Feature Engineering
+**Feature Engineering**
 
 The models are trained using both price information and technical indicators, including:
 
@@ -54,4 +54,6 @@ MACD Signal
 Lagged Returns
 
 The prediction target is the expected percentage return over the next five trading days.
+
+
 
