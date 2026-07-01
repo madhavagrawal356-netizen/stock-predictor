@@ -27,8 +27,8 @@ XGBoost
 Random Forest
 ARIMA
 The model with the lowest validation RMSE is selected automatically.
-**Typical runtime: 5–15 seconds**<br>
-<br>
+**Typical runtime: 5–15 seconds**
+
 2.Advanced AI Analysis
 Designed for maximum predictive performance.
 Performs Optuna hyperparameter optimization
