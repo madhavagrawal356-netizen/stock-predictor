@@ -20,6 +20,12 @@ An end-to-end stock forecasting application that predicts the expected 5-day ret
 10. Directional confidence score
 11. Feature importance visualization for tree-based models
 
+**Why this is needed**
+
+Most "stock predictor" projects are a single notebook that overfits one ticker. This one is built as a small system instead:
+1. Per-ticker model selection — no assumption that one model architecture wins for every stock
+2. Proper time-series validation — TimeSeriesSplit inside every Optuna trial, chronological train/test split, no shuffling
+
 **Prediction Modes**
 1. **Quick Prediction** :<br>
 Designed for fast inference by comparing:<br>
