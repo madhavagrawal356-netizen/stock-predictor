@@ -103,8 +103,6 @@ dashboard.py        # Streamlit dashboard
 
 **Architecture**
 
-# Architecture
-
 ```text
                                     +----------------------+
                                     |      Streamlit       |
