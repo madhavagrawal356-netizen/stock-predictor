@@ -21,7 +21,7 @@ An end-to-end stock forecasting application that predicts the expected 5-day ret
 11. Feature importance visualization for tree-based models
 
 **Prediction Modes**
-1. Quick Prediction :
+1. **Quick Prediction** :<br>
 Designed for fast inference by comparing:<br>
 XGBoost<br>
 Random Forest<br>
@@ -29,7 +29,7 @@ ARIMA<br>
 The model with the lowest validation RMSE is selected automatically.<br>
 **Typical runtime: 5–15 seconds**
 
-2. Advanced AI Analysis
+2. **Advanced AI Analysis**
 Designed for maximum predictive performance.<br>
 Performs Optuna hyperparameter optimization<br>
 Compares multiple candidate models<br>
