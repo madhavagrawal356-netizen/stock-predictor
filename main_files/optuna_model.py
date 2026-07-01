@@ -19,7 +19,7 @@ def get_model_category(trial, model_type):
     if model_type == "xgb":
         model = XGBRegressor(n_estimators = trial.suggest_int("n_estimators", 100, 1000), max_depth = trial.suggest_int("max_depth", 1, 15), learning_rate = trial.suggest_float("learning_rate", 0.01, 0.1), subsample = trial.suggest_float("subsample", 0.5, 1.0), colsample_bytree = trial.suggest_float("colsample_bytree", 0.5, 1.0), random_state = 42)
     elif model_type == "arima":
-        return {"p": trial.suggest_int("p", 0, 5), "d": trial.suggest_int("d", 0, 2), "q": trial.suggest_int("q", 0, 5)}
+        return {"p": trial.suggest_int("p", 0, 3), "d": trial.suggest_int("d", 0, 2), "q": trial.suggest_int("q", 0, 2)}
     elif model_type == "rf":
         model = RandomForestRegressor(n_estimators=trial.suggest_int("n_estimators", 100, 1000), max_depth=trial.suggest_int("max_depth", 1, 15), min_samples_leaf=trial.suggest_int("min_samples_leaf", 1, 10),min_samples_split=trial.suggest_int("min_samples_split", 2, 10), random_state=42)
     return model
