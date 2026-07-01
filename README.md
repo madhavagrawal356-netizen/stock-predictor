@@ -1,3 +1,5 @@
+<img width="947" height="443" alt="Screenshot 2026-07-02 013803" src="https://github.com/user-attachments/assets/2a6a2224-d1bc-4766-8305-5a51da1cedf8" />
+
 AI Stock Predictor
 
 An end-to-end stock forecasting application that predicts the expected 5-day return of publicly traded stocks using machine learning and statistical models. The project combines a FastAPI backend with a Streamlit dashboard to provide both fast predictions and more comprehensive AI-based analysis. The application was built to explore different approaches to time-series forecasting while providing a simple interface.
