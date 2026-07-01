@@ -30,11 +30,11 @@ The model with the lowest validation RMSE is selected automatically.<br>
 **Typical runtime: 5–15 seconds**
 
 2. Advanced AI Analysis
-Designed for maximum predictive performance.
-Performs Optuna hyperparameter optimization
-Compares multiple candidate models
-Selects the best-performing model automatically
-Saves trained models for future reuse
+Designed for maximum predictive performance.<br>
+Performs Optuna hyperparameter optimization<br>
+Compares multiple candidate models<br>
+Selects the best-performing model automatically<br>
+Saves trained models for future reuse<br>
 **Typical runtime: 10–15 minutes (only the first time a ticker is analyzed)**<br>
 
 **Feature Engineering**
