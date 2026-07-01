@@ -81,4 +81,15 @@ main_files/
 scheduler.py        # Background retraining every 60 days
 app.py              # FastAPI routes
 dashboard.py        # Streamlit dashboard
+
 ```
+
+**Running Locally**<br>
+
+pip install -r requirements.txt<br>
+
+**backend**<br>
+uvicorn app:app --reload<br>
+
+**frontend (in a second terminal)** <br>
+streamlit run dashboard.py
