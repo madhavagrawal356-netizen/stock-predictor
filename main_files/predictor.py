@@ -31,7 +31,7 @@ def deep_predict(ticker, job_id=None):
         best_params = model['best_params']
     else:
         if job_id:
-            update_job(job_id, "running", "Finding best model parameters. This may take a while if the ticker is not in the backend.")
+            update_job(job_id, "running", "Finding best model parameters. This may take a while if the ticker is not saved.")
         best_type, best_params, best_rmse = best_model(X_train, y_train, X_test, y_test)
         if best_type == 'arima':
             if job_id:
