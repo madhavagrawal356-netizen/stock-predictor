@@ -66,3 +66,17 @@ The prediction target is the expected percentage return over the next five tradi
 |Backend| FastAPI, background threading, APScheduler|
 |Frontend| Streamlit|
 |Persistence|joblib (models), JSON (job state)|
+
+**Project Structure**
+
+main_files/
+  data_loader.py    # yfinance pull
+  features.py        # technical indicators + target construction
+  trainer.py          # train/test split, model training
+  optuna_model.py    # Optuna search per model type
+  evaluate.py          # quick-mode model comparison
+  predictor.py        # quick_predict / deep_predict orchestration
+  job.py                 # async job status persistence
+scheduler.py         # background retraining every 60 days
+app.py                    # FastAPI routes
+dashboard.py         # Streamlit UI
