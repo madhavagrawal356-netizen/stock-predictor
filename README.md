@@ -56,5 +56,10 @@ Lagged Returns<br>
 
 The prediction target is the expected percentage return over the next five trading days.
 
+**Tech Stack**
 
+| Layer | Tools |
+|----------|----------|
+| Value 1  | Value 2  | 
+| Value 4  | Value 5  | 
 
