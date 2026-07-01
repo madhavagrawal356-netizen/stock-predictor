@@ -27,31 +27,31 @@ XGBoost
 Random Forest
 ARIMA
 The model with the lowest validation RMSE is selected automatically.
-Typical runtime: 5–15 seconds
+**Typical runtime: 5–15 seconds**<br>
 2.Advanced AI Analysis
 Designed for maximum predictive performance.
 Performs Optuna hyperparameter optimization
 Compares multiple candidate models
 Selects the best-performing model automatically
 Saves trained models for future reuse
-Typical runtime: 10–15 minutes (only the first time a ticker is analyzed)
+**Typical runtime: 10–15 minutes (only the first time a ticker is analyzed)**<br>
 
 **Feature Engineering**
 
 The models are trained using both price information and technical indicators, including:
 
 Closing Price<br>
-Trading Volume
-Daily Return
-5-Day Return
-10-Day Return
-Volatility
-Momentum
-Volume Change
-RSI
-MACD
-MACD Signal
-Lagged Returns
+Trading Volume<br>
+Daily Return<br>
+5-Day Return<br>
+10-Day Return<br>
+Volatility<br>
+Momentum<br>
+Volume Change<br>
+RSI<br>
+MACD<br>
+MACD Signal<br>
+Lagged Returns<br>
 
 The prediction target is the expected percentage return over the next five trading days.
 
