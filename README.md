@@ -40,7 +40,7 @@ Typical runtime: 10–15 minutes (only the first time a ticker is analyzed)
 
 The models are trained using both price information and technical indicators, including:
 
-Closing Price
+Closing Price<br>
 Trading Volume
 Daily Return
 5-Day Return
