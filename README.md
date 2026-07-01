@@ -22,11 +22,11 @@ An end-to-end stock forecasting application that predicts the expected 5-day ret
 
 **Prediction Modes**
 1. Quick Prediction :
-Designed for fast inference by comparing:
-XGBoost
-Random Forest
-ARIMA
-The model with the lowest validation RMSE is selected automatically.
+Designed for fast inference by comparing:<br>
+XGBoost<br>
+Random Forest<br>
+ARIMA<br>
+The model with the lowest validation RMSE is selected automatically.<br>
 **Typical runtime: 5–15 seconds**
 
 2. Advanced AI Analysis
