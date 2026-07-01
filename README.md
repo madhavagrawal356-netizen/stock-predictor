@@ -101,6 +101,73 @@ dashboard.py        # Streamlit dashboard
 
 ```
 
+**Architecture**
+
+# Architecture
+
+```text
+                                    +----------------------+
+                                    |      Streamlit       |
+                                    |       Dashboard      |
+                                    +----------+-----------+
+                                               |
+                                               | REST API
+                                               |
+                                    +----------v-----------+
+                                    |       FastAPI        |
+                                    |      Backend API     |
+                                    +----------+-----------+
+                                               |
+                    +--------------------------+--------------------------+
+                    |                                                     |
+                    |                                                     |
+          +---------v---------+                                 +---------v---------+
+          |   Quick Predict   |                                 | Advanced AI       |
+          |                   |                                 | Analysis          |
+          +---------+---------+                                 +---------+---------+
+                    |                                                     |
+                    |                                                     |
+         +----------v----------+                               +----------v----------+
+         | Feature Engineering |                               | Feature Engineering |
+         +----------+----------+                               +----------+----------+
+                    |                                                     |
+                    |                                                     |
+      +-------------v-------------+                         +-------------v-------------+
+      | XGBoost                   |                         | Optuna Hyperparameter      |
+      | Random Forest             |                         | Optimization               |
+      | ARIMA                     |                         +-------------+-------------+
+      +-------------+-------------+                                       |
+                    |                                                     |
+                    +-------------------------+---------------------------+
+                                              |
+                                   +----------v----------+
+                                   |  Best Model Chosen  |
+                                   +----------+----------+
+                                              |
+                                   +----------v----------+
+                                   | Model Cache         |
+                                   | (Joblib)            |
+                                   +----------+----------+
+                                              |
+                                   +----------v----------+
+                                   | Prediction Engine   |
+                                   +----------+----------+
+                                              |
+                                   +----------v----------+
+                                   | API Response        |
+                                   | Expected Return     |
+                                   | Predicted Price     |
+                                   | Confidence          |
+                                   | Trading Signal      |
+                                   +---------------------+
+
+                          Background Scheduler
+        ----------------------------------------------------------
+        • Periodically checks saved models
+        • Retrains stale models using latest market data
+        • Updates cached models automatically
+```
+
 **Running Locally**<br>
 
 pip install -r requirements.txt<br>
