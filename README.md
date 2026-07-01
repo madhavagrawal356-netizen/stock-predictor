@@ -10,7 +10,7 @@ Features
 4. Compares multiple models and automatically selects the best performer
 5. Hyperparameter optimization using Optuna
 6. Model caching with Joblib to avoid retraining previously analyzed stocks
-7. 
+7. Scheduled Background checks and automatic model retraining for cached models for up to date predictions 
 8. REST API built with FastAPI
 9. Interactive dashboard built with Streamlit
 10. Directional confidence score
