@@ -62,6 +62,17 @@ Lagged Returns<br>
 
 The prediction target is the expected percentage return over the next five trading days.
 
+**Evaluation Metrics**
+
+Models are evaluated using:
+
+Root Mean Squared Error (RMSE)<br>
+Mean Absolute Error (MAE)<br>
+R² Score<br>
+Directional Accuracy<br>
+
+The model with the lowest validation RMSE is selected for prediction.
+
 **Tech Stack**
 
 | Layer | Tools |
