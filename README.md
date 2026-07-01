@@ -60,6 +60,9 @@ The prediction target is the expected percentage return over the next five tradi
 
 | Layer | Tools |
 |----------|----------|
-| Value 1  | Value 2  | 
-| Value 4  | Value 5  | 
-
+| Modeling  | XGBoost, scikit-learn (Random Forest), statsmodels (ARIMA)  | 
+| Tuning  | Optuna with TimeSeriesSplit, cross-validation  | 
+| Data | yfinance|
+|Backend| FastAPI, background threading, APScheduler|
+|Frontend| Streamlit|
+|Persistence|joblib (models), JSON (job state)|
