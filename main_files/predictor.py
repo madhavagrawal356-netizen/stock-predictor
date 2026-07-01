@@ -81,16 +81,24 @@ def deep_predict(ticker, job_id=None):
 def quick_predict(ticker):
     model, best_rmse, model_name, X_test, y_test, df = quick_evaluate(ticker)
     latest = X_test.iloc[[-1]]
-    prediction = model.predict(latest)[0]
+    if model_name=='ARIMA':
+        prediction = model.forecast(steps=1).iloc[0]
+    else:
+        prediction = model.predict(latest)[0]
     signal = 'Bearish' if prediction < 0 else 'Bullish'
-    y_pred_model = model.predict(X_test)
+    if model_name=='ARIMA':
+        y_pred_model = model.forecast(steps=len(y_test))
+    else:
+        y_pred_model = model.predict(X_test)
     actual_direction = (y_test > 0).astype(int)
     predicted_direction = (y_pred_model > 0).astype(int)
     directional_accuracy = accuracy_score(actual_direction, predicted_direction)
     directional_accuracy = round(directional_accuracy*100, 2)
     predicted_price = float(df['Close'].iloc[-1])*(1+prediction)
-    feature_importances={}
-    feature_importances={feature : float(importance) for feature, importance in zip(X_test.columns, model.feature_importances_)}
+    if model_name=='ARIMA':
+        feature_importances={}
+    else:
+        feature_importances={feature : float(importance) for feature, importance in zip(X_test.columns, model.feature_importances_)}
     return {
         "Ticker": ticker,
         "best_model": model_name,
